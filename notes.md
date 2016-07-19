@@ -23,6 +23,7 @@ TDD is a way of developing software in which you repeat the following steps:
 
 ### Private Functions and API
 
+To be written.
 
 
 ## Unit Testing Frameworks
@@ -53,31 +54,38 @@ Install Karma, Jasmine, and the Jasmine plugin:
 ```
 >> npm install karma --save-dev
 >> npm install jasmine-core --save-dev
->> npm install karma-jasmine --save-dev 
+>> npm install karma-jasmine --save-dev
 ```
 
 Optional: To use karma in the command line directly, install `karma-cli` globally. This will allow you to run karma directly. Otherwise you will need to run karma each time using: `/node_modules/karma/bin/karma start`.
+
 ```
 # can be long and unruly
 >> /node_modules/karma/bin/karma start
 # so install the cli
 >> npm install -g karma-cli
 # will run karma directly now
->> karma          
+>> karma
 ```
 
 #### Step 2
+Set up karma. Note that if a file name is not passed in, karma will look for `karma.conf.js` by default.
+
+```
+>> karma init sample.conf.js
+```
+
 Create a configuration file for Karma
 
 
-## Setting up Mocha and Chai
+## Setting Up Mocha and Chai
 
 [Mocha] (http://mochajs.org/) is described by its creators as "a simple, flexible, fun JavaScript test framework for node.js and the browser."
 
 [Chai] (http://chaijs.com/) is an assertion library for node and the browser. It can be paired with other test frameworks besides Mocha.
 
 
-### Sample setup/test file
+### Sample Setup
 
 What's shown below uses the BDD interface for mocha.
 
@@ -102,23 +110,27 @@ Install the packages, `mocha` and `chai`. Since we only use these packages durin
 
 Create a directory called `test` - mocha will look for any `.js` and `.coffee` files under this directory.
 
+```
+>> mkdir test
+>> cd test
+```
+
 #### Step 3
 
-Create a Mocha test in a `.js` file. Require chai, as well as the code file(s) you plan on testing:
+In the directory `test`, create a Mocha test in a `.js` file. Require chai, as well as the code file(s) you plan on testing:
 
 ```
 var assert = require('chai').assert;
-var mycode = require('../mycode');
+var mycode = require('../sample-code');
 
-describe("My Code", function() {
-    // where alpha is a function in mycode.js
-	describe("alpha()", function() {
-		it("function a should return 1", function() {
-			var myoutput = mycode.alpha();
-			assert.equals(myoutput, 1);
-
-		});
-	});
+describe("Sample Test for Sample Code", function() {
+    // where alpha is a function in sample-code.js
+    describe("alpha() - equals example", function() {
+        it("function a should return 1", function() {
+            var myoutput = samplecode.alpha();
+            assert.equal(myoutput, 1);
+        });
+    });
 });
 ```
 
@@ -127,26 +139,34 @@ Note: `describe` and `it` are part of Mocha whereas `assert` is Chai-specific.
 Structure the above so that individual test cases (or requirements) are under `it`.
 
 #### Step 4
-Run `mocha` in your terminal and see if your code passes the tests.
+Change directory to the top level of your project. Run `mocha` in your terminal and see if your code passes the tests.
 ```
 >> mocha
 ```
 
 ## Writing basic tests
 
+Examples of Jasmine and Mocha are in accompanying directories.
+
+### Jasmine
+
 To be written.
+
+### Mocha
+
+The test file and sample code are `mocha-example/test/sample-test.js` and `sample-code.js` respectively. The [assert API] (http://chaijs.com/api/assert/) from Mocha is used for this example, but there are [expect and should] (http://chaijs.com/api/bdd/) styles available as well. Run Mocha from the `mocha-example` directory.
+
 
 ## Asynchronous code
 
 To be written.
 
 ## Other things to mention
-- more of the functions from the assert style besides equal...  [link] (http://chaijs.com/api/assert/)
 - including and excluding tests using `.skip()` and `.only` respectively [link] (http://mochajs.org/#exclusive-tests)
 - hooks - beforeEach()/before()/after()/afterEach() (?) [link] (http://mochajs.org/#hooks)
 - BDD vs TDD, including the different should/expect styles of chai [link] (http://chaijs.com/guide/styles/) (?)
 - asynchronous calls - done()/promise (?) [link] (http://mochajs.org/#asynchronous-code)
 
 ## References
-- [Test-driven development] (https://en.wikipedia.org/wiki/Test-driven_development) 
-- [Test Driven Development] (http://www.tutorialspoint.com/software_testing_dictionary/test_driven_development.htm) 
+- [Test-driven development] (https://en.wikipedia.org/wiki/Test-driven_development)
+- [Test Driven Development] (http://www.tutorialspoint.com/software_testing_dictionary/test_driven_development.htm)
