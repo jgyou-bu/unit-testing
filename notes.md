@@ -32,7 +32,43 @@ A very comprehensive list of frameworks by language can be found [here] (https:/
 
 ## Setting up Jasmine and Karma
 
-To be written.
+[Jasmine] (http://jasmine.github.io/2.4/introduction.html) is a framework for testing Javascript. Jasmine can be installed as a standalone file - there are also packages for developing Jasmine projects for Python-, Ruby-, and Node.js - based web projects.
+
+[Karma] (http://karma-runner.github.io/1.0/index.html) allows you to test code in multiple browsers. It launches an HTTP server and creates a test runner HTML file for a complementary testing framework (such as Jasmine or Mocha).
+
+The following is the setup for Jasmine and Karma for a Node.js-based project.
+
+#### Step 0
+
+Create your project files and perform npm setup if not done already.
+
+```
+>> npm init
+```
+
+#### Step 1
+
+Install Karma, Jasmine, and the Jasmine plugin:
+
+```
+>> npm install karma --save-dev
+>> npm install jasmine-core --save-dev
+>> npm install karma-jasmine --save-dev 
+```
+
+Optional: To use karma in the command line directly, install `karma-cli` globally. This will allow you to run karma directly. Otherwise you will need to run karma each time using: `/node_modules/karma/bin/karma start`.
+```
+# can be long and unruly
+>> /node_modules/karma/bin/karma start
+# so install the cli
+>> npm install -g karma-cli
+# will run karma directly now
+>> karma          
+```
+
+#### Step 2
+Create a configuration file for Karma
+
 
 ## Setting up Mocha and Chai
 
@@ -47,10 +83,10 @@ What's shown below uses the BDD interface for mocha.
 
 #### Step 0
 
-In the directory you're working in, perform `npm` setup if needed:
+Create your project files and perform npm setup if not done already.
 
 ```
-npm init
+>> npm init
 ```
 
 #### Step 1
@@ -58,8 +94,8 @@ npm init
 Install the packages, `mocha` and `chai`. Since we only use these packages during testing/development, we can save these as dev dependencies (definition [here] (http://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies)). The `package.json` file will be updated to reflect this.
 
 ```
-npm install mocha --save-dev
-npm install chai --save-dev
+>> npm install mocha --save-dev
+>> npm install chai --save-dev
 ```
 
 #### Step 2
@@ -112,5 +148,5 @@ To be written.
 - asynchronous calls - done()/promise (?) [link] (http://mochajs.org/#asynchronous-code)
 
 ## References
-[Test-driven development] (https://en.wikipedia.org/wiki/Test-driven_development)
-[Test Driven Development] (http://www.tutorialspoint.com/software_testing_dictionary/test_driven_development.htm)
+- [Test-driven development] (https://en.wikipedia.org/wiki/Test-driven_development) 
+- [Test Driven Development] (http://www.tutorialspoint.com/software_testing_dictionary/test_driven_development.htm) 
