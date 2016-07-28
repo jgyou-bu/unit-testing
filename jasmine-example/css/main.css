@@ -1,0 +1,16 @@
+.form-control {
+    padding: 8px 12px;
+    font-family: Lato,Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    line-height: 1.467;
+    color: #34495e;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    transition: border .25s linear;
+}
+
+.form-control:focus {
+    border-color: #1abc9c;
+    outline: 0;
+    box-shadow: none;
+}
